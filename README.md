@@ -8,7 +8,7 @@ Reveal content as it enter the viewport using intersection observer.
 
 ```<script src="/user/themes/hotdoy/js/reveal.js"></script>```
 
-### add the attribute
+### Add reveal effect to an element.
 
 Add ```data-reveal``` to any element to trigger the default reveal animation (fade in).  
 

@@ -14,6 +14,6 @@ Add ```data-reveal``` to any element to trigger the default reveal animation (fa
 
 You can add any custom classes you want to overwrite the default animation. ```data-reveal="myClass yetAnother"```.
 
-the class ```unrevealed``` will be added to all elements not in the viewport when the page load. Any element that ARE in the viewport will be let unafected.
+the class ```unrevealed``` will be added to all elements outside of the viewport when the page load. Any element that ARE in the viewport will be let unafected.
 
-If you want to animate any elements visible in the viewport on page load, you can add ```data-reveal-initialdelay``` anywhere in the page whit any value you might want (in ms) ex: ```data-reveal-initialdelay="800"```.
+If you want to animate elements visible in the viewport on page load, you can add ```data-reveal-initialdelay``` anywhere in the page with value in ms. ex: ```data-reveal-initialdelay="800"```.

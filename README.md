@@ -1,6 +1,6 @@
 # reveal.js
 
-Reveal content as it enter the viewport using intersection observer.
+Reveal elements as they enter the viewport using intersection observer.
 
 ## Usage
 

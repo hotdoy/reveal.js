@@ -18,4 +18,4 @@ the class ```unrevealed``` will be added to all elements outside of the viewport
 
 If you want to animate elements visible in the viewport on page load, you can add ```data-reveal-initialdelay``` anywhere in the page with value in ms. ex: ```data-reveal-initialdelay="800"```. This is mostly useful if you have some kind of loader.
 
-Jquery is needed only for the built-in ```$(init)```.
+Jquery is needed only for ```$(init)```.

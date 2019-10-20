@@ -6,7 +6,7 @@ Reveal elements as they enter the viewport using intersection observer.
 
 ### Add the script
 
-```<script src="/user/themes/hotdoy/js/reveal.js"></script>```
+```<script src="reveal.js"></script>```
 
 ### Add reveal effect to an element.
 

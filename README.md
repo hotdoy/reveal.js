@@ -11,6 +11,7 @@ Reveal content as it enter the viewport using intersection observer.
 ### Add reveal effect to an element.
 
 Add ```data-reveal``` to any element to trigger the default reveal animation (fade in).  
+ex: ```<div data-reveal>What a nice day!</div>```
 
 You can add any custom classes you want to overwrite the default animation. ```data-reveal="myClass yetAnother"```.
 

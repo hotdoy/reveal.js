@@ -2,13 +2,13 @@
 	'use strict';
 
 	var addRevealStyle = function(){
-		var css = '.unrevealed { opacity: 0; } .revealed { opacity: 1; transition: opacity 0.7s; }';
+		var css = '.unrevealed{opacity:0;}.revealed{opacity:1;transition:opacity 0.7s;}';
 		$('<style>').text(css).appendTo(document.head);
 	}
 
 	var reveal = function(){
 		const elements = document.querySelectorAll('[data-reveal]');
-		const observerConfig = {rootMargin: '-100px', threshold: 0.1};
+		const observerConfig = {rootMargin: '0px', threshold: 0.1};
 		let initialDelay = document.querySelector('[data-reveal-initialdelay]');
 		let observer = new IntersectionObserver(onIntersection, observerConfig);
 				

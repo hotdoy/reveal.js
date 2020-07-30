@@ -33,4 +33,4 @@ Since the script runs AFTER everything is loaded, The affected elements are prob
 I suggest using reveal.js in conjunction with loading.js. 
 A simple loader that just get the fuck out when done and give you access to simple page state like ```loading```, ```loaded``` and ```unloading``` so you can fake those ajax page transitions like a pro.
 
-And while your at it. Why not use links.js to manage external and internal links, augment perceived performances using prerender and giving you acces to the ```navigating``` page state.
+And while you're at it. Why not use links.js to manage external and internal links, augment perceived performances using prerender and giving you acces to the ```navigating``` page state.

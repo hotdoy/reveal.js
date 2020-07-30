@@ -31,7 +31,7 @@ Delay the whole process by adding ```data-reveal-delay="1000"``` (using millisec
 
 ## Good to know
 Since the script runs AFTER everything is loaded, The affected elements are probably going to flash or move around when this thing kicks off.
-I suggest using reveal.js in conjunction with loading.js. 
+I suggest using reveal.js in conjunction with (loading.js)[https://github.com/hotdoy/loading.js]. 
 A simple loader that just get the fuck out when done and give you access to simple page state like ```loading```, ```loaded``` and ```unloading``` so you can fake those ajax page transitions like a pro.
 
 And while you're at it. Why not use links.js to manage external and internal links, augment perceived performances using prerender and giving you acces to the ```navigating``` page state.

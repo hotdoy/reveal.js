@@ -4,7 +4,7 @@ Reveal elements as they enter the viewport using intersection observer and CSS.
 
 ## Usage
 
-### Add the script and css.
+### Add related js and css.
 
 ```<script src="/path/to/js/reveal.js"></script>```  
 ```<link href="/path/to/css/reveal.css" type="text/css" rel="stylesheet">```

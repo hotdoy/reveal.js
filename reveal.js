@@ -1,77 +1,93 @@
-(function ($) {
-	'use strict';
+const Reveal = {
 
-	var addRevealStyle = function(){
-		var css = '.unrevealed{opacity:0;}.revealed{opacity:1;transition:opacity 0.7s;}';
-		$('<style>').text(css).appendTo(document.head);
-	}
+	defaultRevealClass: "reveal",
+	defaultHiddenClass: "reveal--hidden",
+	defaultInitialDelay: 0,
 
-	var reveal = function(){
-		const elements = document.querySelectorAll('[data-reveal]');
-		const observerConfig = {rootMargin: '0px', threshold: 0.1};
-		let initialDelay = document.querySelector('[data-reveal-initialdelay]');
-		let observer = new IntersectionObserver(onIntersection, observerConfig);
-				
-		if (initialDelay != null) {
-			initialDelay = initialDelay.getAttribute('data-reveal-initialdelay');
-			elements.forEach(el => {
-				el.classList.add('unrevealed');
-			});
-			setTimeout(function(){
-				elements.forEach(el => {
-					observer.observe(el);
-				});
-			}, initialDelay);
-		} else{
-			elements.forEach(el => {
-				observer.observe(el);
-			});
+
+	Reveal: function(e) {
+		const classes = Reveal.GetRevealClass(e)
+	    e.addEventListener('animationend', () =>{
+	    	e.classList.remove(Reveal.defaultHiddenClass);	
+	    })
+	    e.classList.add(...classes);
+	},
+
+
+	GetRevealClass: function(e) {
+		if (!!e) {
+			const rawClass = e.dataset.reveal.length ? e.dataset.reveal : Reveal.defaultRevealClass;
+			const classArray = rawClass.split(" ");
+			return classArray;
 		}
+	},
 
-		function onIntersection(elements) {
-	  		elements.forEach(el => {
-				if (el.intersectionRatio > 0) {
-					let target = el.target;
-					observer.unobserve(target);
-			  		if (target.classList.contains('unrevealed')) {
-			  			let revealClass = target.getAttribute('data-reveal');
-			  			if (revealClass.length) {
-			  				let revealClassArray = revealClass.split(" ");
-			  				el.target.classList.add(...revealClassArray);
 
-			  				// Does not trigger on video element
-			  				// target.onanimationend = () =>{
-			  				// 	this.classList.remove('unrevealed');
-			  				// };
+	GetAutoRevealClass: function(e) {
+		if (!!e) {
+			const rawClass = e.dataset.autoReveal.length ? e.dataset.autoReveal : Reveal.defaultRevealClass;
+			const classArray = rawClass.split(" ");
+			return classArray;
+		}
+	},
 
-			  				// Fix for video elements
-			  				let style = getComputedStyle(target);
-			  				let duration = parseFloat(style.animationDuration.slice(0,-1));
-			  				let delay = parseFloat(style.animationDelay.slice(0,-1));
-			  				let totalDelay = (duration + delay) * 1000;
-			  				setTimeout(function(){ 
-			  					target.classList.remove('unrevealed');
-			  				}, totalDelay);
-			  				
-			  			} else{
-			  				target.classList.add('revealed');
-			  				target.classList.remove('unrevealed');
-			  			}
-			   		}
-				}
-				else{
-					if (initialDelay == null) {
-						target.classList.add('unrevealed');
+
+	PropagateAutoReveal: function(context) {
+		const el = context.querySelectorAll("[data-auto-reveal]");
+		if (!!el) {
+			for (let e of el) {
+				const classList = Reveal.GetAutoRevealClass(e);
+				const children = e.children;
+				if (!!children) {
+					for (let c of children) {
+						c.setAttribute("data-reveal", classList);
 					}
 				}
-			});
+			}		
 		}
-	}
+	},
 
-	var init = function () {
-		addRevealStyle();
-		reveal();
-	};
 
-	$(init);
-})(jQuery);
+	GetInitialDelay: function() {
+		const e = document.querySelector("[data-reveal-delay]");
+		const delay = e ? e.dataset.revealDelay : Reveal.defaultInitialDelay;
+		return delay;
+	},
+
+
+	HideElements: function(el) {
+		for (let e of el){
+			e.classList.add(Reveal.defaultHiddenClass);
+		}
+	},
+
+
+	Observe: function(el) {
+		const observer = new IntersectionObserver(onIntersection, {rootMargin: '0px', threshold: 0.01});
+		setTimeout(function(){
+			for (let e of el){
+				observer.observe(e);
+			}
+		}, Reveal.GetInitialDelay());
+
+		function onIntersection(el) {
+			for (let e of el) {
+				if (e.intersectionRatio > 0) {
+					observer.unobserve(e.target);
+					Reveal.Reveal(e.target);
+				}
+			}
+		}
+	},
+
+
+	Init: function(context) {
+		Reveal.PropagateAutoReveal(context);
+		const el = context.querySelectorAll("[data-reveal]");
+		Reveal.HideElements(el);
+		Reveal.Observe(el);
+	},
+
+};
+
+Reveal.Init(document.body);

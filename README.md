@@ -6,7 +6,7 @@ Reveal elements as they enter the viewport using intersection observer and CSS.
 
 ### Add the script and css.
 
-```<script src="/path/to/js/reveal.js"></script>```
+```<script src="/path/to/js/reveal.js"></script>```  
 ```<link href="/path/to/css/reveal.css" type="text/css" rel="stylesheet">```
 
 ### Add reveal animation effect to an element.

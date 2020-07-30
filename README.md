@@ -9,7 +9,7 @@ Reveal elements as they enter the viewport using intersection observer and CSS.
 ```<script src="/path/to/js/reveal.js"></script>```
 ```<link href="/path/to/css/reveal.css" type="text/css" rel="stylesheet">```
 
-### Add reveal animation effect to any element.
+### Add reveal animation effect to an element.
 
 Simply add ```data-reveal``` to an element. 
 
@@ -19,9 +19,9 @@ You can add your own reveal animation by creating new css classes and animations
 
 ex: ```<div data-reveal="myOwnClass">What a nice day!</div>```
 
-### Apply reveal animation to multiple children.
+### Apply reveal animation to children.
 
-Adding ```data-auto-reveal``` on a parent element will automatically add the ```data-reveal``` attribute with related classes to all children.
+Adding ```data-auto-reveal``` on a parent element will automatically add the ```data-reveal``` attribute with related classes to it's children.
 
 ### Delaying the initial reveal 
 

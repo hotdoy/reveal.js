@@ -28,6 +28,7 @@ Adding ```data-auto-reveal``` on a parent element will automatically add the ```
 Delay the whole process by adding ```data-reveal-delay="1000"``` (using milliseconds) on any element of your page.
 (the body tag could be a good choice. You could also put it on a loader you want to sync the reveal with. We really don't care.)
 
+## More...
 Since the script runs AFTER everything is loaded, The affected elements will probably flash when this thing kicks off.
 We suggest using reveal.js in conjunction with loading.js. 
 A simple loader that just get the fuck out when done and give you access to simple page state like ```loading```, ```loaded``` and ```unloading```.

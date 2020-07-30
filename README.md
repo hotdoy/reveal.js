@@ -4,25 +4,33 @@ Reveal elements as they enter the viewport using intersection observer and CSS.
 
 ## Usage
 
-### Add the script
+### Add the script and css.
 
-```<script src="/path/reveal.js"></script>```
+```<script src="/path/to/js/reveal.js"></script>```
+```<link href="/path/to/css/reveal.css" type="text/css" rel="stylesheet">```
 
-### Add reveal effect to an element.
+### Add reveal animation effect to any element.
 
-Add ```data-reveal``` to an element. 
-That's it!
+Simply add ```data-reveal``` to an element. 
 
 ex: ```<div data-reveal>What a nice day!</div>```
 
-You can add your own reveal animation by simply creating new css classes and animations.
+You can add your own reveal animation by creating new css classes and animations.
 
 ex: ```<div data-reveal="myOwnClass">What a nice day!</div>```
 
-### Apply reveal animation to all child element.
+### Apply reveal animation to multiple children.
 
-Adding ```data-auto-reveal``` on a parent element will automatically add the ```data-reveal``` attribute with the related classes to all it's childrens.
+Adding ```data-auto-reveal``` on a parent element will automatically add the ```data-reveal``` attribute with related classes to all children.
 
 ### Delaying the initial reveal 
 
-You can delay the whole process by adding ```data-reveal-delay``` on the body element of a page (Or any element really. Only the first found value will be used.)
+Delay the whole process by adding ```data-reveal-delay="1000"``` (using milliseconds) on any element of your page.
+(the body tag could be a good choice. You could also put it on a loader you want to sync the reveal with. We really don't care.)
+
+Since the script runs AFTER everything is loaded, The affected elements will probably flash when this thing kicks off.
+We suggest using reveal.js in conjunction with loading.js. 
+A simple loader that just get the fuck out when done and give you access to simple page state like ```loading```, ```loaded``` and ```unloading```.
+
+And while your at it. Why not use links.js to manage external and internal links, augment perceived performances using prerender and giving you acces to the ```navigating``` page state.
+
